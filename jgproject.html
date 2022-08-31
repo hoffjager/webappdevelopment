@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+	<meta charset = "UTF-8">
+	<title> Data Analytics Project 2021 </title>
+	<script src = "https://d3js.org/d3.v6.min.js"> </script>
+	
+	<!-- Heading on the Web Page -->
+	<h1 id = "analytics"> Higher Diploma in Data Analytics </h1>
+</head>
+
+<body>
+	<!-- Three linked pages which "Open in New Tab" upon clicking -->
+	<a href = "http://www.skysports.com/" target = "_blank"> Sky Sports News </a> <br/>
+	<a href = "https://psnprofiles.com/hoff_jager/" target = "_blank"> My PlayStation Network Profile </a> <br/>
+	<a href = "https://www.linkedin.com/in/jonnygrealish64/" target = "_blank"> My LinkedIn Profile </a> <br/>
+	
+	<!-- Requesting Customer Login Information -->
+	<form name = "Login Form">
+		<p> Email Address:
+			<input type = "email"/ required>
+		</p>	
+		<p> Password:
+			<input type = "password"/ required>
+		</p>	
+		<p>
+			<input type = "submit" value = "Submit">
+		</p>
+	</form>
+	
+	<!-- Buttons to update colors and text of the heading -->
+	<button onclick = "changeColor()"> Change Color of Heading </button>
+	<button onclick = "changeTextFormat()"> Change Text of Heading </button>
+	
+	<div id = "jonnySVG">
+	</div>
+	
+</body>
+
+<script>
+	<!-- Functions which implement into the buttons above -->
+	function changeTextFormat(){
+		var text = document.getElementById("analytics").innerHTML;
+		document.getElementById("analytics").innerHTML = "This project in Web Application Development is part of a" + text;
+	}
+	
+	function changeColor(){
+		document.getElementById("analytics").style.color = "red";
+	}
+	
+	var myFirstArray = [35, 23, 12, 30, 27, 15, 10];
+	let svgContainer = d3.select("#jonnySVG").append("svg")
+		.attr("width", 1000)
+		.attr("height", 1000);
+	let circles = svgContainer.selectAll("circle")
+		.data(myFirstArray)
+	circles.enter()
+		.append("circle")
+			.attr("cx", function(d,i){
+				return 35 + (i*100);
+			})
+			.attr("cy", 150)
+			.attr("r", function(d){
+				return d;
+			})
+			.attr("fill", "black")
+</script>
+
+</html>
